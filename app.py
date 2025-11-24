@@ -5,12 +5,12 @@ def create_app():
     app = Flask(__name__)
 
     # --- Main site pages (HTML templates) ---
-    @app.route('/')
+    @app.route("/")
     def home():
         return "Hello there"
         #return render_template('lobby.html')
 
-    @app.route('/contact')
+    @app.route("/contact")
     def contact():
         return render_template('Contact.html')
 
