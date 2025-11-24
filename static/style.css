@@ -417,3 +417,182 @@ header h1 {
   font-size: 0.9rem;
   color: #111827;
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      font-family: Inter, system-ui, sans-serif;
+      background: #E5E7EB;
+      color: #111827;
+    }
+
+    /* === HEADER S POZADÍM === */
+    .header-bg {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+      padding: 2rem 1rem;
+      /* Cesta k obrázku opravená na štandardný relatívny zápis, ak to nie je Django, inak použiť /static/ */
+      background-image: url("../static/image/nie.jpg"); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* overlay LEN v rámci headeru */
+    .header-bg::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .site-title {
+      font-size: clamp(40px, 8vw, 100px);
+      font-weight: 700;
+      line-height: 1;
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Kontajner pre Pravý horný roh (Log In) */
+    .top-right {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display:flex;
+      gap:0.5rem;
+      align-items:center;
+      z-index: 2;
+    }
+
+    /* === NOVÉ: Kontajner pre Ľavý horný roh (Jazyky) === */
+    .top-left {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+    }
+
+    /* === NOVÉ: Štýly pre rozbaľovaciu ponuku jazykov === */
+    .language-dropdown {
+      position: relative; /* Dôležité pre umiestnenie dropdown-content */
+      display: inline-block;
+    }
+
+    .language-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.8rem !important; /* Drobné úpravy pre button */
+    }
+
+    .dropdown-content {
+      display: none; /* Štandardne skryté */
+      position: absolute;
+      top: 100%; /* Zobrazí sa pod tlačidlom */
+      left: 0;
+      min-width: 130px;
+      background-color: #fff; /* Biele pozadie */
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 3;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 4px; /* Malá medzera */
+    }
+
+    .dropdown-content a {
+      color: #111827;
+      padding: 10px 14px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f3f4f6;
+    }
+
+    .show {
+      display: block;
+    }
+    /* === KONIEC NOVÝCH ŠTÝLOV === */
+
+
+    .btn {
+      background:#39a009;
+      color:#fff;
+      border:none;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor:pointer;
+      text-transform:uppercase;
+    }
+    .btn:hover { background:#29650c; }
+
+    .center-buttons {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:1rem;
+      margin-top:1rem;
+    }
+    .center-buttons a { text-decoration:none; }
+    .center-buttons .btn-large {
+      padding: 0.8rem 2rem;
+      font-size:1.1rem;
+      border-radius:8px;
+    }
+
+    main { padding: 2rem 1rem; max-width: 1100px; margin: 0 auto; }
+
+    /* KONTAKTNÁ SEKCIÁ + FOOTER */
+    .contact-cta {
+      background:#f3f4f6;
+      padding:2rem;
+      border-radius:12px;
+      text-align:center;
+      margin-top:3rem;
+    }
+    .contact-cta a {
+      display:inline-block;
+      margin-top:1rem;
+      padding:0.75rem 1.5rem;
+      background:#16a34a;
+      color:#fff;
+      border-radius:8px;
+      text-decoration:none;
+    }
+
+    .icons {
+      margin-top:1rem;
+      display:flex;
+      gap:1rem;
+      justify-content:center;
+      font-size:1.6rem;
+    }
+
+    footer {
+      margin-top:2rem;
+      text-align:center;
+      padding:1rem 0;
+      color:#6b7280;
+      font-size:0.95rem;
+    }
