@@ -7,7 +7,8 @@ def create_app():
     # --- Main site pages (HTML templates) ---
     @app.route('/')
     def home():
-        return render_template('lobby.html')
+        return "Hello there"
+        #return render_template('lobby.html')
 
     @app.route('/contact')
     def contact():
