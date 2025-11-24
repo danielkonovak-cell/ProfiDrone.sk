@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/bd270e71b4.js" crossorigin="anonymous"></script>
+  <title>Service - ProfiDrone.sk</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+    }
+
+    /* === HLAVIČKA S POZADÍM === */
+    .header-bg {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 420px;
+      padding: 2rem 1rem;
+      background-image: url("../static/image/nie.jpg"); /* rovnaké pozadie ako na lobby */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* tmavý overlay pre čitateľnosť textu */
+    .header-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    /* Obsah hlavičky */
+    .header-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .header-bg h1 {
+      color: #fff;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      font-size: clamp(50px, 8vw, 100px);
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .center-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      z-index: 1;
+    }
+
+    .center-buttons button {
+      background-color: #39a009;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      border-radius: 8px;
+      transition: background-color 0.25s ease;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .center-buttons button:hover {
+      background-color: #29650c;
+    }
+
+    /* Kontakt */
+    .icone {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+
+    .icone i {
+      color: #111827;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .icone i:hover {
+      color: #39a009;
+    }
+
+    .autor {
+      display: block;
+      text-align: center;
+      color: #6b7280;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HLAVIČKA -->
+  <header class="header-bg">
+    <div class="header-content">
+      <h1>Service</h1>
+      <div class="center-buttons">
+        <a href="lobby.html" title="Home ProfiDrone.sk">
+          <button>Home</button>
+        </a>
+        <a href="Farmers.html" title="Farmers ProfiDrone.sk">
+          <button>Farmers</button>
+        </a>
+        <a href="Contact.html" title="Contact ProfiDrone.sk">
+          <button>Contact</button>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- FAQ SECTION -->
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" id="faq-container">
+        <!-- Content can go here -->
+      </div>
+    </section>
+
+
+<section class="py-16 bg-gray-50" id="drone-section">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-5xl font-bold mb-10 text-center text-gray-900">
+      Out Dron Flotila
+    </h2>
+
+    <!-- GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-500" id="drone-grid">
+      <!-- === CARD 1: DJI AGRAS T50 === -->
+      <article class="drone-card bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center transition-all duration-500 md:col-span-1">
+        <img src="../static/image/t50.jpeg" alt="DJI Agras T50" class="w-36 h-36 object-cover rounded-full mb-5">
+        <h3 class="text-2xl font-semibold mb-3">DJI AGRAS T50</h3>
+        <p class="text-gray-600 mb-4">
+          Precise spraying and dispersion with high efficiency — ideal for large agricultural areas.
+        </p>
+
+        <details class="w-full text-left transition-all duration-500">
+          <summary class="cursor-pointer font-medium py-2 text-green-700">More informacion</summary>
+          <div class="prose prose-sm max-w-none text-gray-700 mt-3">
+            <h4>Detailed Overview of Technologies and Services</h4>
+              <p>
+              The DJI Agras T50 is a state-of-the-art tool designed to transform agricultural operations into a precise, data-driven process with minimal waste and maximum yield.
+              </p>
+              <ul class="list-disc pl-6">
+              <li><strong>Dual Atomization Spraying System</strong> – extremely fine and uniform droplets.</li>
+              <li><strong>Droplet size:</strong> 50–500 µm, <strong>Flow rate:</strong> 16–24 L/min.</li>
+              <li><strong>VRA & RTK:</strong> precise dosing according to map (Variable Rate Application), centimeter-level navigation accuracy.</li>
+               <li><strong>Orchard Mode, Obstacle Sensing, Terrain Following:</strong> full automation and safety.</li>
+ <li><strong>Efficiency:</strong> up to 21 ha/h, batteries charged in 9–12 minutes.</li> </ul>
+          </div>
+        </details>
+      </article>
+
+      <!-- === CARD 2: MATRICE 30 SERIES === -->
+      <article class="drone-card bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center transition-all duration-500 md:col-span-1">
+        <img src="../static/image/matrice-30.jpg" alt="DJI Matrice 30" class="w-36 h-36 object-cover rounded-full mb-5">
+        <h3 class="text-2xl font-semibold mb-3">DJI MATRICE 30 SERIES</h3>
+        <p class="text-gray-600 mb-4">
+          Powerful platform for SAR, inspection and mapping — M30/M30T with thermal camera.
+        </p>
+
+        <details class="w-full text-left transition-all duration-500">
+          <summary class="cursor-pointer font-medium py-2 text-green-700">More informacion</summary>
+          <div class="prose prose-sm max-w-none text-gray-700 mt-3">
+            <ul class="list-disc pl-6">
+              <li><strong>Public Safety & SAR:</strong> thermal vision for rescue, firefighting, and monitoring.</li>
+              <li><strong>Inspections:</strong> energy sector, solar farms, bridges, gas pipelines.</li>
+              <li><strong>Mapping:</strong> precise 3D models and orthomaps for the construction industry.</li>
+              <li><strong>Technology:</strong> 48 MP zoom, 200× hybrid, LRF 1200 m, IP55, -20–50 °C.</li>
+              <li><strong>Safety:</strong> 6-directional sensing, redundancy, FlightHub 2 integration.</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <!-- === CARD 3: DJI DOCK 3 === -->
+      <article class="drone-card bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center transition-all duration-500 md:col-span-1">
+        <img src="../static/image/dock-3.jpg" alt="DJI Dock 3" class="w-36 h-36 object-cover rounded-full mb-5">
+        <h3 class="text-2xl font-semibold mb-3">DJI DOCK 3</h3>
+        <p class="text-gray-600 mb-4">
+          Autonomous "drone-in-a-box" system for 24/7 operation without an operator on site.
+        </p>
+
+        <details class="w-full text-left transition-all duration-500">
+          <summary class="cursor-pointer font-medium py-2 text-green-700">More informacion</summary>
+          <div class="prose prose-sm max-w-none text-gray-700 mt-3">
+            <ul class="list-disc pl-6">
+              <li><strong>Emergency Response:</strong> immediate launch for fires and disasters.</li>
+              <li><strong>Inspection:</strong> autonomous inspection of networks, bridges, solar fields.</li>
+              <li><strong>Security:</strong> automatic patrols and motion detection.</li>
+              <li><strong>Features:</strong> IP56, -30–50 °C, 15 s launch time, 27 min charging.</li>
+              <li><strong>Integration:</strong> O4+ transmission, FlightHub 2 – planning, data, monitoring.</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- === JAVASCRIPT === -->
+<script>
+  const detailsList = document.querySelectorAll('#drone-section details');
+  const cards = document.querySelectorAll('.drone-card');
+
+  detailsList.forEach((details, index) => {
+    details.addEventListener('toggle', () => {
+      if (details.open) {
+        // zavrie ostatné
+        detailsList.forEach((other, i) => {
+          if (other !== details) other.open = false;
+        });
+        // zmenší všetky
+        cards.forEach((card, i) => {
+          card.classList.remove('md:col-span-3');
+          card.classList.remove('scale-105', 'opacity-100');
+          card.classList.add('md:col-span-1', 'opacity-50', 'scale-95');
+        });
+        // otvorenú rozšíri
+        cards[index].classList.add('md:col-span-3', 'scale-105', 'opacity-100');
+        cards[index].classList.remove('opacity-50', 'scale-95');
+        // posunie na stred
+        cards[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        // ak sa zavrie, reset
+        cards.forEach((card) => {
+          card.classList.remove('md:col-span-3', 'scale-105', 'opacity-50', 'scale-95');
+          card.classList.add('md:col-span-1', 'opacity-100');
+        });
+      }
+    });
+  });
+</script>
+
+<div style="display: flex; justify-content: center; margin-top: 20px;">
+    <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSf4eQVkqsIxwRuuQUk3fnxi7MfbdvbOkblW-ZbUAkDMdskfBA/viewform?embedded=true"
+        width="640" 
+        height="1100" 
+        frameborder="20" 
+        marginheight="20" 
+        marginwidth="20">
+    </iframe>
+</div>
+
+
+    <!-- CONTACT US SECTION -->
+    <section class="py-24 bg-gray-100">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 text-center rounded-lg p-12 shadow-inner">
+        <h3 class="text-5xl font-bold mb-8 text-gray-900">
+          If you are interested, ask us!
+        </h3>
+        <p class="text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
+          Contact us for specific inquiries about custom projects, pricing, or specialized needs.
+        </p>
+        <a
+          href="Contact.html"
+          class="inline-block px-14 py-6 text-2xl font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition duration-300 shadow-lg"
+        >
+          Contact Us
+        </a>
+      </div>
+
+      <div class="icone">
+        <a href="https://www.facebook.com/profile.php?id=61573863213235&locale=sk_SK" target="_blank" title="Facebook">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+
+      <span class="autor">
+        Author: Daniel Novak.<br />
+        &copy; 2025 ProfiDrone.sk. All rights reserved.<br />
+      </span>
+    </section>
+  </main>
+
+ 
+</body>
+</html>

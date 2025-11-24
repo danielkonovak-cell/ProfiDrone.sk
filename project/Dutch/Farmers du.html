@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/bd270e71b4.js" crossorigin="anonymous"></script>
+  <title>Boeren - ProfiDrone.sk</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+    }
+
+    /* === HLAVIČKA S POZADÍM (ako lobby, ale menšia) === */
+    .header-bg {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 280px; /* menšia výška */
+      padding: 2rem 1rem;
+      background-image: url("../static/image/nie.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* tmavý overlay */
+    .header-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .header-bg h1 {
+      color: #fff;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      font-size: clamp(40px, 6vw, 80px); /* menší ako 100px */
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .center-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      z-index: 1;
+    }
+
+    .center-buttons button {
+      background-color: #39a009;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      font-size: 1.2rem;
+      border-radius: 6px;
+      transition: background-color 0.25s ease, transform 0.2s ease;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .center-buttons button:hover {
+      background-color: #29650c;
+      transform: translateY(-2px);
+    }
+
+    /* Sociálne ikony */
+    .icone {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      font-size: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .icone i {
+      color: #111827;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .icone i:hover {
+      color: #39a009;
+    }
+
+    .autor {
+      display: block;
+      text-align: center;
+      color: #6b7280;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    /* FAQ accordion styling */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .accordion-item[data-open="true"] .accordion-content {
+      max-height: 2000px;
+      padding-top: 1.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .accordion-item[data-open="true"] .accordion-icon {
+      transform: rotate(180deg);
+    }
+    
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+  <!-- HLAVIČKA -->
+  <header class="header-bg">
+    <div class="header-content">
+      <h1>Boeren</h1>
+      <div class="center-buttons">
+        <a href="lobby du.html" title="Home ProfiDrone.sk">
+          <button>Home</button>
+        </a>
+        <a href="Service du.html" title="Service ProfiDrone.sk">
+          <button>Service</button>
+        </a>
+        <a href="Contact du.html" title="Contact ProfiDrone.sk">
+          <button>Contact</button>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / INTRO -->
+    <section class="bg-gray-100 py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-5xl md:text-6xl font-extrabold mb-6 text-gray-900">
+        Veelgestelde vragen    
+          </h2>
+        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          Alles wat u moet weten over onze agronomische diensten en hoe wij uw boerderij kunnen helpen slagen.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" id="faq-container"></div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="py-16 bg-gray-100">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center rounded-lg p-8 shadow-inner">
+        <h3 class="text-4xl font-bold mb-4">Heeft u nog vragen?</h3>
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Ons team staat klaar om u te helpen. Neem contact met ons op met al uw specifieke vragen over uw boerderij of onze diensten.
+        </p>
+        <a
+          href="Contact.html"
+          class="inline-block px-10 py-4 text-xl font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition duration-300 shadow-lg">
+          Schrijf ons
+        </a>
+      </div>
+
+      <div class="icone">
+        <a href="https://www.facebook.com/profile.php?id=61573863213235&locale=sk_SK" target="_blank" title="Facebook">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <span class="autor">Auteur: Daniel Novak.<br />© 2025 ProfiDrone.sk. Alle rechten voorbehouden.<br /></span>
+    </section>
+  </main>
+
+
+
+  <!-- === JAVASCRIPT pre FAQ === -->
+  <script>
+    const faqs = [
+ { 
+   "question": "Hoeveel acres/hectares kan uw dronepark effectief bestrijken op een normale werkdag en wat is uw gemiddelde spuitdosis (gallons/liters per acre)?", 
+   "answer": "Onze vlaggenschipdrones (bijv. DJI Agras T50) kunnen onder optimale omstandigheden 30 tot 50 acres (12 tot 20 hectare) per uur bestrijken, inclusief de tijd voor het bijvullen van de tank en het verwisselen van de batterij. Dit betekent ongeveer 250–400 acres per dag. We gebruiken meestal een lage volumetrische dosering van 8–12 liter per acre, wat zeer effectief is dankzij de sterke luchtstroom onder de drone, die zorgt voor een uitstekende penetratie in het gewas."   },
+ { 
+    "question": "Hoe nauwkeurig is de toepassing en hoe zorgt u ervoor dat de chemicaliën op het gewas terechtkomen en niet buiten het doelgebied (driftbeheersing)?", 
+    "answer": "Onze drones maken gebruik van RTK-GNSS-positionering voor nauwkeurigheid op centimeterniveau, waardoor overlapping en weglating worden geminimaliseerd. Voor driftbeheersing gebruiken we: Dubbele verstuivingsspuitsystemen waarmee we de druppelgrootte nauwkeurig kunnen regelen (meestal 130–250 μm). Automatische hoogtecontrole om een consistente afstand (meestal 2–3 meter) boven het gewas te handhaven. Weermonitoring om strikt aan de regelgeving te voldoen en spuiten bij harde wind te vermijden." 
+  },
+  { 
+    "question": "Kunnen uw drones omgaan met complexe veldgeometrieën, oneffen terrein of gespecialiseerde gewassen zoals boomgaarden en wijngaarden?", 
+    "answer": "Ja. In tegenstelling tot traditionele grondmachines of vliegtuigen met vaste vleugels, blinken onze multirotor-drones uit in veelzijdigheid: Oneffen terrein: Ze gebruiken geïntegreerde radar- en visuele systemen voor real-time terreinvolging (tot 50° helling). Complexe velden: Ze kunnen gemakkelijk kleine, onregelmatig gevormde velden en natte gebieden bereiken, waardoor bodemverdichting en gewasschade worden geëlimineerd. Boomgaardmodus (Orchard Mode): We kunnen 3D-routeplanning uitvoeren voor gerichte bespuiting van bomen en wijnstokken, waardoor de dekking op verticale structuren wordt gemaximaliseerd." 
+  },
+  { 
+    "question": "Wat is uw prijsstructuur (per acre/hectare) en hoe kan spuiten met een drone mij geld besparen in vergelijking met traditionele methoden?", 
+    "answer": "Onze prijs is vastgesteld op basis van per acre/per hectare en is afhankelijk van het type toepassing (heel veld, spot-spuiten), de grootte van het veld en de chemische mix. Spuiten met een drone levert besparingen op doordat: Het de inputkosten verlaagt: Met behulp van op beelden gebaseerde Variabele Dosering Applicatie (VRA) passen we het product precies toe waar het nodig is, waardoor het chemisch verbruik met 20–30% wordt verminderd. Tijdigheid: Snelle inzet betekent dat we kunnen toeslaan in smalle toepassingsvensters, waardoor potentieel opbrengstverlies door plagen of ziekten wordt voorkomen. Eliminatie van schade: Geen gewasschade of bodemverdichting, wat vaak voorkomt bij zware grondmachines." 
+  },
+  { 
+    "question": "Heeft u alle noodzakelijke licenties en verzekeringen voor commerciële luchttoepassingen en hoe gaat u om met chemische veiligheid en milieuvoorschriften?", 
+    "answer": "Natuurlijk. We bezitten alle vereiste commerciële licenties, inclusief FAA Part 107 (of de equivalente regionale licentie) en de Part 137-vrijstelling (voor luchttoepassing). We onderhouden ook een uitgebreide aansprakelijkheidsverzekering. Alle operators zijn volledig getraind in het veilig hanteren en mengen van chemicaliën en we voldoen strikt aan alle vereisten voor pesticidelabels en lokale beperkingen van bufferzones om maximale milieubescherming te garanderen." 
+  },
+  { 
+    "question": "Als ik een plotselinge uitbraak van een plaag of ziekte heb, hoe snel kunt u dan uw diensten inzetten?", 
+    "answer": "Een van de belangrijkste voordelen van onze service is de snelle respons. Omdat onze apparatuur mobiel is en minimale opstelling vereist, kunnen we noodmissies voor spot-spuiten vaak plannen en uitvoeren binnen 24 tot 48 uur na ontvangst van het verzoek, afhankelijk van het weer en de regelgevende goedkeuring. Deze snelle doorlooptijd is cruciaal om de verspreiding van bedreigingen voor gewassen te stoppen." 
+  },
+  { 
+    "question": "Welke gegevens ontvang ik na voltooiing van de missie?", 
+    "answer": "U ontvangt een uitgebreid digitaal rapport dat het volgende bevat: Gedetailleerde GPS-spuitrecords: Bewijs van de toepassing met een nauwkeurige weergave van de vliegroute, hoogte en behandelde gebieden. Kaart van het behandelde gebied: Een duidelijke visuele weergave van het behandelde gebied, inclusief niet-bespoten zones en beheer van bufferzones. Samenvatting van de toepassing: Totale hoeveelheid gebruikt product en efficiëntiestatistieken." 
+  }
+]
+
+    function renderFAQs() {
+      const container = document.getElementById("faq-container");
+      let html = '<div class="space-y-6">';
+      faqs.forEach((faq, index) => {
+        html += `
+          <div class="accordion-item bg-white rounded-xl border border-gray-200 shadow-lg" data-open="false">
+            <button 
+              class="accordion-trigger flex justify-between items-center w-full text-left py-6 px-6 font-extrabold text-2xl hover:bg-green-50/50 transition duration-150 rounded-xl"
+              aria-expanded="false"
+              aria-controls="content-${index}"
+              onclick="toggleAccordion(this)">
+              <span class="pr-4 text-green-700">${faq.question}</span>
+              <svg class="accordion-icon w-8 h-8 text-green-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="accordion-content px-6 text-gray-900 text-lg leading-relaxed" id="content-${index}">
+              ${faq.answer}
+            </div>
+          </div>`;
+      });
+      html += "</div>";
+      container.innerHTML = html;
+    }
+
+    function toggleAccordion(button) {
+      const item = button.closest(".accordion-item");
+      const content = item.querySelector(".accordion-content");
+      const isOpen = item.getAttribute("data-open") === "true";
+
+      document.querySelectorAll(".accordion-item[data-open='true']").forEach(openItem => {
+        if (openItem !== item) {
+          openItem.setAttribute("data-open", "false");
+          openItem.querySelector(".accordion-content").style.maxHeight = "0";
+        }
+      });
+
+      if (isOpen) {
+        item.setAttribute("data-open", "false");
+        content.style.maxHeight = "0";
+      } else {
+        item.setAttribute("data-open", "true");
+        content.style.maxHeight = "2000px";
+      }
+    }
+
+    window.onload = renderFAQs;
+  </script>
+</body>
+</html>

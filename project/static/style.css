@@ -1,0 +1,419 @@
+/* ======================================= */
+/* 1. ZÁKLADNÉ NASTAVENIE A RESET */
+/* ======================================= */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Zvolená väčšia základná veľkosť písma pre lepšiu viditeľnosť */
+    font-size: 28px; 
+    height: 100%;
+    font-family: Arial, sans-serif; /* Pridaný font, ak nebol definovaný v HTML */
+}
+
+/* Používa sa len pre nadpis H1, nie pre celý dokument */
+h1 {
+    color: rgb(46, 4, 200);
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 100px;
+}
+/* === PRODUKTOVÁ SEKCIÁ === */
+.product-section {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap; /* zabezpečí, že sa to na mobile zalomí pod seba */
+}
+
+.product-image img {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.product-text {
+  flex: 1; /* nech sa prispôsobí priestoru vedľa obrázka */
+  min-width: 280px;
+}
+
+.product-text h2 {
+  font-size: 2rem;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.product-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #374151;
+  text-align: justify;
+}
+/* --- CONTACT CTA SEKCIa --- */
+.contact-cta {
+  background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%);
+  padding: 4rem 1rem;
+  text-align: center;
+  border-top: 1px solid #d1d5db;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.contact-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-cta h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.contact-cta p {
+  font-size: 1.1rem;
+  color: #374151;
+  max-width: 36rem;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: #16a34a;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.contact-btn:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+}
+
+/* --- Ikony sociálnych sietí --- */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  font-size: 1.8rem;
+}
+
+.social-icons i {
+  color: #111827;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.social-icons i:hover {
+  color: #16a34a;
+  transform: scale(1.15);
+}
+
+/* --- Autor a copyright --- */
+.author {
+  margin-top: 1.75rem;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+
+
+/* ======================================= */
+/* 2. HEADER A NAVIGÁCIA */
+/* ======================================= */
+
+header {
+    /* Upozornenie: Ak tento kód nie je v Jinja/Flask template, použite len 'image/nie.jpg' */
+    background-image: url('{{ url_for("static", filename="image/nie.jpg") }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 500px; /* Použitá min-height namiesto pevnej výšky */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    color: darkblue;
+}
+
+header h1 {
+    font-size: 4.9em;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+/* Centrovacie tlačidlá (Home, Service, Farmers) */
+.center-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; /* Príliš malé, ak má v sebe veľké tlačidlá. Upravené. */
+    gap: 20px;
+}
+
+.center-buttons button {
+    background-color: #39a009; /* button background */
+    color: white; /* button text color */
+    border: none;
+    padding: 20px 40px;
+    font-size: 2em;
+}
+
+.center-buttons :hover {
+    background-color: #29650c;
+    cursor: pointer;
+}
+
+/* Samostatné tlačidlo, pravdepodobne starý kód, nechal som ho pre prípad */
+.right-button {
+    float: right;
+    background-color: none;
+    color: white;
+    border: none;
+}
+
+/* ======================================= */
+/* 3. FORMULÁR A INPUTY (.contact-form) */
+/* ======================================= */
+
+.contact-form {
+    /* Zväčšený kontaktný formulár */
+    font-size: 2em;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    font-size: 1em; /* Rovnaká veľkosť ako pre font-size v .contact-form */
+    display: block; /* Zabezpečí, že sa label zobrazí na vlastnom riadku */
+}
+
+.contact-form input,
+.contact-form textarea {
+    font-size: 1em;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+/* Tlačidlo Odoslať (submit-button) */
+.submit-button {
+    font-size: 40px;
+    padding: 20px 35px;
+    background-color: rgb(22 163 74);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 15px auto 0 auto;
+    width: 220px;
+    text-align: center;
+}
+.submit-button:hover {
+    background-color: #2f855a;
+}
+/* Starší/Duplicitný kód pre submit button, odstránený v prospech .submit-button */
+/*
+.contact-form input[type="submit"] {
+    font-size: 1em;
+    padding: 16px 32px;
+}
+*/
+
+/* ======================================= */
+/* 4. OSTATNÉ SEKCIE (OBRÁZKY, AUTOR, IKONY) */
+/* ======================================= */
+
+.big-link {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #1a5dab;
+    text-decoration: none;
+}
+
+.big-link:hover {
+    color: #39a009;
+    text-decoration: underline;
+}
+
+/* Informácie o autorovi/pätka */
+.autor {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Obrázok v strede */
+#image1 {
+    display: block;
+    margin-left: auto; /* Použijeme auto na centrovanie */
+    margin-right: auto; /* Použijeme auto na centrovanie */
+    width: 1400px; /* POZOR: Pre takúto pevnú šírku MUSÍTE POUŽIŤ max-width: 100% pre mobilné zariadenia */
+    height: 1200px;
+}
+
+.image-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    justify-content: center;
+}
+
+.right-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 400px;
+    margin-left: 30px;
+}
+
+.dji-txt {
+    font-size: 2em;
+    margin: 0;
+}
+
+.novy-text {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+/* Ikony sociálnych médií */
+.icone {
+    text-align: center;
+}
+
+.icone a {
+    text-decoration: none;
+}
+
+.fa-square-facebook {
+    color: rgb(38, 6, 218);
+    font-size: 3em;
+}
+.fa-square-facebook:hover {
+    color: rgb(101, 83, 206);
+}
+
+.fa-instagram {
+    color: rgb(241, 126, 18);
+    font-size: 3em;
+}
+.fa-instagram:hover {
+    color: rgb(247, 166, 91);
+}
+
+.fa-youtube {
+    color: red;
+    font-size: 3em;
+}
+.fa-youtube:hover {
+    color: rgb(236, 85, 85);
+}
+/* === CONTACT CTA Sekcia === */
+.contact-cta {
+  background: #e5e7eb;
+  padding: 5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-wrapper {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  max-width: 850px;
+  width: 100%;
+}
+
+.contact-wrapper h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.contact-wrapper p {
+  color: #374151;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Zelené tlačidlo --- */
+.contact-btn {
+  display: inline-block;
+  background: #16a34a;
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+}
+
+/* --- Sociálne ikony --- */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  font-size: 1.25rem;
+}
+
+.social-icons a {
+  background: #16a34a;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.social-icons a:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+}
+
+/* --- Autor --- */
+.author {
+  margin-top: 1.75rem;
+  font-size: 0.9rem;
+  color: #111827;
+}

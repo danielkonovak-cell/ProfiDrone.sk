@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProfiDrone.sk</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/bd270e71b4.js" crossorigin="anonymous"></script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      font-family: Inter, system-ui, sans-serif;
+      background: #E5E7EB;
+      color: #111827;
+    }
+    .header-bg {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+      padding: 2rem 1rem;
+      background-image: url("../static/image/nie.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .header-bg::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+    .header-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 900px;
+    }
+    .site-title {
+      font-size: clamp(40px, 8vw, 100px);
+      font-weight: 700;
+      line-height: 1;
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      margin-bottom: 1.5rem;
+    }
+    .top-right {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display:flex;
+      gap:0.5rem;
+      align-items:center;
+      z-index: 2;
+    }
+    .top-left {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+    }
+    .language-dropdown { position: relative; display: inline-block; }
+    .language-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.8rem !important;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 130px;
+      background-color: #fff;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 3;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    .dropdown-content a {
+      color: #111827;
+      padding: 10px 14px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+    }
+    .dropdown-content a:hover { background-color: #f3f4f6; }
+    .show { display:block; }
+    .btn {
+      background:#39a009;
+      color:#fff;
+      border:none;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor:pointer;
+      text-transform:uppercase;
+    }
+    .btn:hover { background:#29650c; }
+
+    .center-buttons {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:1rem;
+      margin-top:1rem;
+    }
+    .center-buttons a { text-decoration:none; }
+    .center-buttons .btn-large {
+      padding: 0.8rem 2rem;
+      font-size:1.1rem;
+      border-radius:8px;
+    }
+
+    main { padding: 2rem 1rem; max-width: 1100px; margin: 0 auto; }
+
+    .contact-cta {
+      background:#f3f4f6;
+      padding:2rem;
+      border-radius:12px;
+      text-align:center;
+      margin-top:3rem;
+    }
+    .contact-cta a {
+      display:inline-block;
+      margin-top:1rem;
+      padding:0.75rem 1.5rem;
+      background:#16a34a;
+      color:#fff;
+      border-radius:8px;
+      text-decoration:none;
+    }
+    .icons {
+      margin-top:1rem;
+      display:flex;
+      gap:1rem;
+      justify-content:center;
+      font-size:1.6rem;
+    }
+    footer {
+      margin-top:2rem;
+      text-align:center;
+      padding:1rem 0;
+      color:#6b7280;
+      font-size:0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header-bg">
+    <div class="top-left">
+      <div class="language-dropdown" onclick="toggleDropdown()">
+        <button class="btn language-btn">
+          <i class="fas fa-globe"></i> NL
+        </button>
+        <div class="dropdown-content" id="language-menu">
+          <a href="/project/Slovak/lobby sk.html">Slowaaks</a>
+          <a href="/project/templates/lobby.html">Engels</a>
+          <a href="?lang=nl">Nederlands</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="top-right">
+      <button id="login-button" class="btn">Inloggen</button>
+      <div id="welcome-user" style="display:none; color:#fff;">----</div>
+    </div>
+
+    <div class="header-content">
+      <h1 class="site-title">ProfiDrone</h1>
+      <nav class="center-buttons">
+        <a href="Service du.html"><button class="btn btn-large">Service</button></a>
+        <a href="Farmers du.html"><button class="btn btn-large">Boeren</button></a>
+        <a href="Contact du.html"><button class="btn btn-large">Contact</button></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="product-section" aria-label="Product">
+      <div class="product-container">
+        <div class="product-image">
+          <h2><strong>DJI AGRAS T50: Een revolutie in de landbouw</strong></h2>
+          <img src="../static/image/picture 1.jpg" alt="DJI AGRAS T50" />
+        </div>
+        <div class="product-text">
+          <br/>
+          <p>
+            Maak kennis met een nieuwe generatie hoogpresterende drones die zijn ontworpen voor maximale efficiëntie en precisie.
+            De DJI Agras T50 is een professionele landbouwdrone gebouwd om grote oppervlakken te bestrijken met ongeëvenaarde snelheid en nauwkeurigheid.
+          </p>
+          <br/>
+          <h3>Belangrijkste toepassingsgebieden:</h3>
+          <br/>
+          <ul class="benefits-clean">
+            <li><strong>Hoge capaciteit en doorstroming:</strong> Besproeiing (40 kg / 16 l/min, tot 24 l/min met optionele sproeikoppen) en verspreiding (50 kg / 75 l).</li>
+
+            <li><strong>Maximale efficiëntie:</strong> Besproei tot <strong>21 hectare per uur.</strong></li>
+
+            <li><strong>Nauwkeurige toepassing:</strong> Dubbel sproeisysteem en ondersteuning voor variabele dosering (VRA) om materiaalgebruik te optimaliseren.</li>
+
+            <li><strong>Veelzijdigheid:</strong> Modi voor akkers, boomgaarden en heuvelachtig terrein (helling tot 50°).</li>
+
+            <li><strong>Veiligheid:</strong> Multidirectionele obstakeldetectie met radar en binoculaire vision-systemen.</li>
+
+            <a href="Service sk.html"><button><strong>Lees meer<br/> Druk</strong></button></a>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-section" aria-label="Product">
+      <div class="product-container">
+        <div class="product-image">
+          <h2><strong>DJI MATRICE 30 SERIES: Compacte kracht voor zakelijke missies</strong></h2>
+          <img src="../static/image/preco.png" alt="DJI AGRAS T50" />
+        </div>
+        <div class="product-text">
+          <br/>
+          <p>
+            De DJI M30/M30T is een veelzijdige bedrijfsdrone voor alle weersomstandigheden, essentieel voor kritische operaties waar betrouwbaarheid en geavanceerde sensortechnologie van groot belang zijn.
+          </p>
+          <br/>
+          <h3>Belangrijkste toepassingsgebieden:</h3>
+          <br/>
+          <ul class="benefits-clean">
+            <li><strong>Openbare veiligheid en zoek- en reddingsacties (M30T):</strong> Snelle inzet voor zoek- en reddingsmissies (SAR) met behulp van een geïntegreerde warmtecamera.</li>
+
+            <li><strong>Inspectie van infrastructuur:</strong> Veilig en gedetailleerd onderzoek van kritieke assets met een 48MP zoomcamera.</li>
+
+            <li><strong>Mapping en monitoring:</strong> Nauwkeurige dataverzameling voor 3D-modellering en terreinanalyse.</li>
+
+            <li><strong>Ontworpen voor extreme omstandigheden:</strong> Dankzij IP55 bescherming en temperatuurbereik van -20 °C tot 50 °C.</li>
+
+            <a href="Service sk.html"><button><strong>Lees meer <br/> Druk</strong></button></a>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-section" aria-label="Product">
+      <div class="product-container">
+        <div class="product-image">
+          <h2><strong>DJI DOCK 3: Geautomatiseerde drone-operaties bij alle weersomstandigheden</strong></h2>
+          <img src="../static/image/auto.jpg" alt="DJI AGRAS T50" />
+        </div>
+        <div class="product-text">
+          <br/>
+          <p>
+            De DJI Dock 3 is een geavanceerde geautomatiseerde dronehangar en oplaadstation die bedrijfsprocessen transformeert met 24/7 inzet.
+            Dankzij **IP56 weersbestendigheid** en temperatuurbereik van **-30 °C tot 50 °C** is hij geschikt voor elke omgeving.
+          </p>
+          <br/>
+          <h3>Belangrijke toepassingen:</h3>
+          <br/>
+          <ul class="benefits-clean">
+            <li><strong>Openbare veiligheid:</strong> Snelle inzet voor **SAR-missies** en rampenmonitoring.</li>
+
+            <li><strong>Infrastructuurinspectie:</strong> Autonome, herhaalbare controles van elektriciteitsnetten, zonneparken, telecomtorens en pijpleidingen.</li>
+
+            <li><strong>Bouw en mapping:</strong> Automatische terreinmonitoring en dataverzameling voor nauwkeurige 3D-modellen.</li>
+
+            <li><strong>Beveiliging en toezicht:</strong> Perimeterbewaking en detectie van bewegende objecten.</li>
+
+            <li><strong>Belangrijk voordeel:</strong> Ondersteunt **voertuigmontage** waardoor mobiel gebruik en snelle verplaatsing mogelijk zijn.</li>
+
+            <a href="Service sk.html"><button><strong>Lees meer <br/> Druk</strong></button></a>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-cta">
+      <div class="contact-container">
+        <h3>Heeft u vragen? Neem dan contact met ons op.</h3>
+        <p>
+          Neem contact met ons op voor vragen over maatwerkprojecten, prijzen of speciale behoeften.
+        </p>
+        <a href="Contact sk.html" class="contact-btn">Contact opnemen</a>
+
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61573863213235&locale=sk_SK" target="_blank" title="Facebook">
+            <i class="fa-brands fa-square-facebook"></i>
+          </a>
+          <a href="#" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+
+        <div class="author">
+          Auteur: Daniel Novak. © 2025 ProfiDrone.sk. Alle rechten voorbehouden.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function toggleDropdown() {
+      document.getElementById("language-menu").classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.language-btn') && !event.target.closest('.language-dropdown')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const isLoggedIn = localStorage.getItem('loggedIn');
+      const loginButton = document.getElementById('login-button');
+      const welcome = document.getElementById('welcome-user');
+      if (isLoggedIn === 'true') {
+        loginButton.style.display = 'none';
+        welcome.style.display = 'block';
+      } else {
+        loginButton.style.display = 'inline-block';
+        welcome.style.display = 'none';
+      }
+      loginButton.addEventListener('click', function () {
+        localStorage.setItem('loggedIn', 'true');
+        loginButton.style.display = 'none';
+        welcome.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>

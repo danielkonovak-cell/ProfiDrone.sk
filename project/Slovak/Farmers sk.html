@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/bd270e71b4.js" crossorigin="anonymous"></script>
+  <title>Farmári - ProfiDrone.sk</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+    }
+
+    /* === HLAVIČKA S POZADÍM (ako lobby, ale menšia) === */
+    .header-bg {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 280px; /* menšia výška */
+      padding: 2rem 1rem;
+      background-image: url("../static/image/nie.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* tmavý overlay */
+    .header-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .header-bg h1 {
+      color: #fff;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      font-size: clamp(40px, 6vw, 80px); /* menší ako 100px */
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .center-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      z-index: 1;
+    }
+
+    .center-buttons button {
+      background-color: #39a009;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      font-size: 1.2rem;
+      border-radius: 6px;
+      transition: background-color 0.25s ease, transform 0.2s ease;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .center-buttons button:hover {
+      background-color: #29650c;
+      transform: translateY(-2px);
+    }
+
+    /* Sociálne ikony */
+    .icone {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      font-size: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .icone i {
+      color: #111827;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .icone i:hover {
+      color: #39a009;
+    }
+
+    .autor {
+      display: block;
+      text-align: center;
+      color: #6b7280;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    /* FAQ accordion styling */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .accordion-item[data-open="true"] .accordion-content {
+      max-height: 2000px;
+      padding-top: 1.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .accordion-item[data-open="true"] .accordion-icon {
+      transform: rotate(180deg);
+    }
+    
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+  <!-- HLAVIČKA -->
+  <header class="header-bg">
+    <div class="header-content">
+      <h1>Farmári</h1>
+      <div class="center-buttons">
+        <a href="lobby sk.html" title="Home ProfiDrone.sk">
+          <button>Domov</button>
+        </a>
+        <a href="Service sk.html" title="Service ProfiDrone.sk">
+          <button>Servis</button>
+        </a>
+        <a href="Contact sk.html" title="Contact ProfiDrone.sk">
+          <button>Kontakt</button>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / INTRO -->
+    <section class="bg-gray-100 py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-5xl md:text-6xl font-extrabold mb-6 text-gray-900">
+          Často kladené otázky 
+        </h2>
+        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          Všetko, čo potrebujete vedieť o našich agronomických službách a o tom, ako môžeme pomôcť vašej farme uspieť.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" id="faq-container"></div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="py-16 bg-gray-100">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center rounded-lg p-8 shadow-inner">
+        <h3 class="text-4xl font-bold mb-4">Máte ďalšie otázky?</h3>
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Náš tím je tu, aby vám pomohol. Kontaktujte nás s akýmikoľvek konkrétnymi otázkami týkajúcimi sa vašej farmy alebo našich služieb.
+        </p>
+        <a
+          href="Contact.html"
+          class="inline-block px-10 py-4 text-xl font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition duration-300 shadow-lg">
+          Napíšte nám
+        </a>
+      </div>
+
+      <div class="icone">
+        <a href="https://www.facebook.com/profile.php?id=61573863213235&locale=sk_SK" target="_blank" title="Facebook">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <span class="autor">Author: Daniel Novak.<br />© 2025 ProfiDrone.sk. All rights reserved.<br /></span>
+    </section>
+  </main>
+
+  <footer>
+    <hr style="border:none; border-top:1px solid #e5e7eb; margin:1rem 0;" />
+    <div>Made with care • ProfiDrone.sk</div>
+  </footer>
+
+  <!-- === JAVASCRIPT pre FAQ === -->
+  <script>
+    const faqs = [
+  { 
+    "question": "Koľko akrov/hektárov dokáže váš dronový park efektívne pokryť za bežný prevádzkový deň a aká je vaša priemerná dávka postreku (galóny/litre na aker)?", 
+    "answer": "Naše vlajkové drony (napr. DJI Agras T50) dokážu za optimálnych podmienok pokryť 30 až 50 akrov (12 až 20 hektárov) za hodinu, vrátane času na doplnenie nádrže a výmenu batérie. To znamená približne 250 – 400 akrov za deň. Zvyčajne používame nízku objemovú dávku 8–12 litrov na aker, čo je vysoko efektívne vďaka silnému prúdeniu vzduchu pod dronom, ktoré zaisťuje vynikajúcu penetráciu do porastu." 
+  },
+  { 
+    "question": "Aká presná je aplikácia a ako zabezpečujete, aby chemikália dopadla na plodinu a nie mimo cieľovú oblasť (kontrola úletu)?", 
+    "answer": "Naše drony používajú určovanie polohy RTK-GNSS pre presnosť na úrovni centimetra, čím sa minimalizuje prekrývanie a vynechanie. Na kontrolu úletu využívame: Duálne atomizačné postrekovacie systémy, ktoré nám umožňujú presne kontrolovať veľkosť kvapiek (zvyčajne 130–250 μm). Automatickú kontrolu výšky na udržanie konzistentnej vzdialenosti (zvyčajne 2–3 metre) nad porastom. Monitorovanie počasia na prísne dodržiavanie predpisov a vyhýbanie sa postreku počas silného vetra." 
+  },
+  { 
+    "question": "Dokážu vaše drony zvládnuť zložité geometrie polí, nerovný terén alebo špecializované plodiny, ako sú sady a vinice?", 
+    "answer": "Áno. Na rozdiel od tradičných pozemných strojov alebo lietadiel s pevným krídlom, naše viacerotorové drony vynikajú vo všestrannosti: Nerovný terén: Používajú integrované radarové a vizuálne systémy na sledovanie terénu v reálnom čase (až do sklonu 50°). Zložité polia: Ľahko sa dostanú na malé, nepravidelne tvarované polia a mokré oblasti, čím eliminujú utláčanie pôdy a poškodenie plodín. Režim sadu (Orchard Mode): Môžeme vykonávať 3D plánovanie trasy pre cielený postrek stromov a viniča, čím sa maximalizuje pokrytie na vertikálnych štruktúrach." 
+  },
+  { 
+    "question": "Aká je vaša cenová štruktúra (za aker/hektár) a ako mi môže postrek dronom ušetriť peniaze v porovnaní s tradičnými metódami?", 
+    "answer": "Naša cena je stanovená na báze za aker/za hektár a závisí od typu aplikácie (celé pole, bodový postrek), veľkosti poľa a zmesi chemikálií. Postrek dronom prináša úspory tým, že: Znižuje vstupné náklady: Pomocou aplikácie s premenlivou dávkou (VRA) založenej na snímkach aplikujeme produkt presne tam, kde je to potrebné, čím znižujeme spotrebu chemikálií až o 20–30%. Včasnosť: Rýchle nasadenie znamená, že môžeme zasiahnuť v úzkych aplikačných oknách, čím potenciálne predchádzame stratám výnosu spôsobeným škodcami alebo chorobami. Eliminácia škôd: Nulové poškodenie plodín alebo zhutňovanie pôdy, ktoré je bežné pri ťažkej pozemnej technike." 
+  },
+  { 
+    "question": "Máte všetky potrebné licencie a poistenie pre komerčnú leteckú aplikáciu a ako sa zaoberáte chemickou bezpečnosťou a environmentálnymi predpismi?", 
+    "answer": "Samozrejme. Máme všetky potrebné komerčné licencie, vrátane FAA Part 107 (alebo ekvivalentnej regionálnej licencie) a výnimky Part 137 (pre leteckú aplikáciu). Taktiež udržiavame komplexné poistenie zodpovednosti. Všetci operátori sú plne vyškolení v bezpečnom zaobchádzaní a miešaní chemikálií a prísne dodržiavame všetky požiadavky na etikety pesticídov a miestne obmedzenia ochranných pásiem, aby sme zaistili maximálnu environmentálnu bezpečnosť." 
+  },
+  { 
+    "question": "Ak mám náhle prepuknutie škodcu alebo choroby, ako rýchlo môžete nasadiť vaše služby?", 
+    "answer": "Jednou z hlavných výhod našej služby je rýchla reakcia. Pretože naše vybavenie je mobilné a vyžaduje minimálne nastavenie, často môžeme naplánovať a vykonať núdzové bodové postrekové misie do 24 až 48 hodín od prijatia požiadavky, v závislosti od počasia a regulačného schválenia. Tento rýchly obrat je životne dôležitý pre zastavenie šírenia hrozieb pre plodiny." 
+  },
+  { 
+    "question": "Aké dáta dostanem po dokončení misie?", 
+    "answer": "Dostanete komplexnú digitálnu správu, ktorá zahŕňa: Podrobné GPS záznamy postreku: Dôkaz aplikácie s presným zobrazením letovej dráhy, nadmorskej výšky a ošetrených oblastí. Mapa ošetrenej oblasti: Jasné vizuálne zobrazenie pokrytej oblasti, vrátane bezo-postrekových zón a riadenia ochranných pásiem. Zhrnutie aplikácie: Celkové použité množstvo produktu a metriky efektívnosti." 
+  }
+];
+
+    function renderFAQs() {
+      const container = document.getElementById("faq-container");
+      let html = '<div class="space-y-6">';
+      faqs.forEach((faq, index) => {
+        html += `
+          <div class="accordion-item bg-white rounded-xl border border-gray-200 shadow-lg" data-open="false">
+            <button 
+              class="accordion-trigger flex justify-between items-center w-full text-left py-6 px-6 font-extrabold text-2xl hover:bg-green-50/50 transition duration-150 rounded-xl"
+              aria-expanded="false"
+              aria-controls="content-${index}"
+              onclick="toggleAccordion(this)">
+              <span class="pr-4 text-green-700">${faq.question}</span>
+              <svg class="accordion-icon w-8 h-8 text-green-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="accordion-content px-6 text-gray-900 text-lg leading-relaxed" id="content-${index}">
+              ${faq.answer}
+            </div>
+          </div>`;
+      });
+      html += "</div>";
+      container.innerHTML = html;
+    }
+
+    function toggleAccordion(button) {
+      const item = button.closest(".accordion-item");
+      const content = item.querySelector(".accordion-content");
+      const isOpen = item.getAttribute("data-open") === "true";
+
+      document.querySelectorAll(".accordion-item[data-open='true']").forEach(openItem => {
+        if (openItem !== item) {
+          openItem.setAttribute("data-open", "false");
+          openItem.querySelector(".accordion-content").style.maxHeight = "0";
+        }
+      });
+
+      if (isOpen) {
+        item.setAttribute("data-open", "false");
+        content.style.maxHeight = "0";
+      } else {
+        item.setAttribute("data-open", "true");
+        content.style.maxHeight = "2000px";
+      }
+    }
+
+    window.onload = renderFAQs;
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | ProfiDrone.sk</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: white;
+      padding: 96px; /* 120px * 0.8 */
+      border-radius: 24px; /* 30px * 0.8 */
+      box-shadow: 0 9.6px 48px rgba(0,0,0,0.1); /* 12px,60px * 0.8 */
+      max-width: 1120px; /* 1400px * 0.8 */
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 72px; /* 90px * 0.8 */
+      font-size: 4.8em; /* 6em * 0.8 */
+      color: #1a202c;
+    }
+
+    table {
+      width: 100%;
+      font-size: 2.88em; /* 3.6em * 0.8 */
+    }
+
+    td {
+      padding: 24px 0; /* 30px * 0.8 */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 24px; /* 30px * 0.8 */
+      font-size: 2.4em; /* 3em * 0.8 */
+      border: 1px solid #ccc;
+      border-radius: 12px; /* 15px * 0.8 */
+    }
+
+    .login-button {
+      background-color: #2e7d32;
+      color: white;
+      padding: 28.8px 48px; /* 36px,60px * 0.8 */
+      font-size: 2.88em; /* 3.6em * 0.8 */
+      border: none;
+      border-radius: 12px; /* 15px * 0.8 */
+      cursor: pointer;
+      width: 100%;
+      margin-top: 48px; /* 60px * 0.8 */
+      transition: background-color 0.3s ease;
+    }
+
+    .login-button:hover {
+      background-color: #1b5e20;
+    }
+
+    .register-link {
+      display: block;
+      margin-top: 48px; /* 60px * 0.8 */
+      text-align: center;
+      font-size: 2.4em; /* 3em * 0.8 */
+    }
+
+    .register-link a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="{{ url_for('views.login') }}" method="POST">
+      <table>
+        <tr>
+          <td><label for="username">Username:</label></td>
+          <td><input type="email" id="email" name="email" required></td>
+        </tr>
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td><input type="password" id="password" name="password" required></td>
+        </tr>
+      </table>
+
+      <button type="submit" class="login-button">Login</button>
+    </form>
+
+    <div class="register-link">
+      Not registered yet? <a href="register.html">Create an account</a>
+    </div>
+  </div>
+
+</body>
+</html>

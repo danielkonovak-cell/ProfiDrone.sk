@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://kit.fontawesome.com/bd270e71b4.js" crossorigin="anonymous"></script>
+  <title>Contact - ProfiDrone.sk</title>
+
+  <!-- Tailwind (ak ju používaš) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #141e33;
+      text-align: center;
+    }
+
+        /* ====== HLAVIČKA ====== */
+      header {
+      position: relative;
+      width: 100%;
+      min-height: 260px; /* menšia výška */
+      background-image: url("../static/image/nie.jpg"); /* 🔹 OPRAVENÉ */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+  
+
+    /* tmavý overlay pre čitateľnosť textu */
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    header h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 2.8em; /* menší text */
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .center-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .center-buttons button {
+      background-color: #39a009;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .center-buttons button:hover {
+      background-color: #2c7a0b;
+      transform: translateY(-2px);
+    }
+
+    /* ====== FORMULÁR ====== */
+    main {
+      max-width: 700px;
+      margin: 40px auto;
+      text-align: left;
+      padding: 0 1rem;
+    }
+
+    main h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.2em;
+      font-weight: bold;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 25px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      resize: vertical;
+    }
+
+    button.submit-button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 12px 40px;
+      font-size: 1.1em;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+    }
+
+
+    button.submit-button:hover {
+      background-color: #1b4d23;
+      transform: translateY(-2px);
+    }
+
+    /* ====== IKONY A FOOTER ====== */
+    .icone {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 40px;
+      font-size: 1.8em;
+    }
+
+    .icone i {
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .fa-square-facebook { color: rgb(38, 6, 218); }
+    .fa-square-facebook:hover { color: rgb(101, 83, 206); }
+
+    .fa-instagram { color: rgb(241, 126, 18); }
+    .fa-instagram:hover { color: rgb(247, 166, 91); }
+
+    .fa-youtube { color: red; }
+    .fa-youtube:hover { color: rgb(236, 85, 85); }
+
+    .autor {
+      display: block;
+      text-align: center;
+      color: #555;
+      margin-top: 20px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HLAVIČKA -->
+  <header>
+    <h1>Contact</h1>
+    <div class="center-buttons">
+      <a href="lobby.html" title="Home ProfiDrone.sk">
+        <button type="button">Home</button>
+      </a>
+      <a href="Service.html" title="Service ProfiDrone.sk">
+        <button type="button">Service</button>
+      </a>
+      <a href="Farmers.html" title="Farmers ProfiDrone.sk">
+        <button type="button">Farmers</button>
+      </a>
+    </div>
+    
+  </header>
+
+  <!-- FORMULÁR -->
+  <main>
+    <form class="contact-form" action="https://getform.io/f/bvrmnkqb" method="POST">
+      <h2>Contact Us</h2>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+
+      <input type="hidden" name="_gotcha" style="display:none !important" /> 
+
+      <button type="submit" class="submit-button">Send</button>
+    </form>
+  </main>
+
+  <!-- IKONY A AUTOR -->
+  <section class="py-16 bg-gray-100">
+    <div class="icone">
+      <a href="https://www.facebook.com/profile.php?id=61573863213235&locale=sk_SK" target="_blank" title="Facebook">
+        <i class="fa-brands fa-square-facebook"></i>
+      </a>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-youtube"></i>
+    </div>
+
+    <span class="autor">
+      Author: Daniel Novak.<br>
+      &copy; 2025 ProfiDrone.sk. All rights reserved.<br>
+    </span>
+  </section>
+</body>
+</html>
+
