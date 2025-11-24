@@ -4,7 +4,7 @@ from flask import Flask
 app = Flask(__name__)
 
 # --- Main site pages (HTML templates) ---
-@app.route("/")
+@app.get("/")
 def home():
     return "Hello there"
     #return render_template('lobby.html')
