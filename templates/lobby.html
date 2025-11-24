@@ -196,26 +196,26 @@
     <div class="top-left">
       <div class="language-dropdown" onclick="toggleDropdown()">
         <button class="btn language-btn">
-          <i class="fas fa-globe"></i> SK
+          <i class="fas fa-globe"></i> EN
         </button>
         <div class="dropdown-content" id="language-menu">
-          <a href="?lang=en">Slovak</a>
-          <a href="/project/templates/lobby.html">English</a>
-          <a href="/project/Dutch/lobby du.html">Dutch</a>
+          <a href="?lang=en">English</a>
+          <a href="{{ url_for('sk_lobby')}}">Slovak</a>
+          <a href="/Dutch/lobby_du.html">Dutch</a>
         </div>
       </div>
     </div>
     <div class="top-right">
       <button id="login-button" class="btn">Log In</button>
-      <div id="welcome-user" style="display:none; color:#fff;">----</div>
+      <div id="welcome-user" style="display:none; color:#fff;">Welcome, User!</div>
     </div>
     
     <div class="header-content">
       <h1 class="site-title">ProfiDrone</h1>
       <nav class="center-buttons">
-        <a href="Service sk.html"><button class="btn btn-large">Servis</button></a>
-        <a href="Farmers sk.html"><button class="btn btn-large">Farmári</button></a>
-        <a href="Contact sk.html"><button class="btn btn-large">Kontakt</button></a>
+        <a href="{{ url_for('service')}}"><button class="btn btn-large">Service</button></a>
+        <a href="{{ url_for('farmers')}}"><button class="btn btn-large">Farmers</button></a>
+        <a href="{{ url_for('contact')}}"><button class="btn btn-large">Contact</button></a>
       </nav>
     </div>
   </header>
@@ -224,7 +224,7 @@
     <section class="product-section" aria-label="Produkt">
       <div class="product-container">
         <div class="product-image">
-          <h2><strong>DJI AGRAS T50: Revolúcia v poľnohospodárstve</strong></h2>
+          <h2><strong>DJI AGRAS T50: The Revolution in Precision Agriculture</strong></h2>
           <img src="../static/image/picture 1.jpg" alt="DJI AGRAS T50" />
         </div>
         <div class="product-text">
@@ -232,25 +232,26 @@
             <br/>
 
             <p>
-            Zoznámte sa s novou generáciou vysokovýkonných dronov navrhnutých pre maximálnu efektivitu a presnosť. \
-            DJI Agras T50 je profesionálny poľnohospodársky dron postavený na pokrytie rozsiahlych plôch s bezkonkurenčnou rýchlosťou a presnosťou.
-          </p>
+              Meet the next generation of high-performance drones designed for maximum efficiency and precision. 
+              The DJI Agras T50 is a prof\essional agricultural drone built to cover vast areas with unmatched speed and accuracy.
+            </p>
             <br/>
-            <h3>Kľúčové oblasti použitia:</h3>
+            <h3>Key Application Areas:</h3>
             <br/>
             <ul class="benefits-clean">
-              <li><strong>Vysoká kapacita a prietok:</strong> Postrek (40 kg / 16 l/min, až 24 l/min s voliteľnými tryskami) 
-a rozmetanie (50 kg / 75 l).</li>
+              <li><strong>High Capacity & Flow Rate:</strong> Spraying (40 kg / 16 L/min, up to 24 L/min with optional nozzles) 
+                and Spreading (50 kg / 75 L).</li>
 
-              <li><strong>Maximálna účinnosť:</strong> Postrekujte až <strong> 21 hektárov za hodinu.</strong></li>
+              <li><strong>Maximum Efficiency:</strong> Spray up to <strong>21 hectares per hour.</strong></li>
 
-              <li><strong>PPresná aplikácia:</strong> Systém dvojitého rozprašovania a podpora pre 
-<em>priemerné dávkovanie (VRA)</em> na optimalizáciu spotreby materiálu.</li>
+              <li><strong>Precise Application:</strong> Dual Atomizing Spraying System and support for 
+                <em> Rate Application (VRA)</em> to optimize material usage.</li>
 
-              <li><strong>Všestrannosť: </strong> Režimy pre polia, sady (režim Sad) a zvlnený terén (sledovanie terénu so sklonom až 50°).</li>
+              <li><strong>Versatility:</strong> Modes for fields, orchards (Orchard Mode),
+                and undulating terrain (Terrain Following up to 50° slope).</li>
 
-             <li><strong>Bezpečnosť:</strong>  Viacsmerové snímanie prekážok pomocou radaru a binokulárnych systémov videnia.</li>
-              <a href="Service sk.html"><button><strong>Prečitať viac<br/> Stač </strong></button></a>
+              <li><strong>Safety:</strong> Multidirectional Obstacle Sensing via radar and binocular vision systems.</li>
+              <a href="Service.html"><button><strong>Read more <br/> Press me</strong></button></a>
             </ul> 
           </div>
         </div>
@@ -260,7 +261,7 @@ a rozmetanie (50 kg / 75 l).</li>
     <section class="product-section" aria-label="Produkt">
       <div class="product-container">
         <div class="product-image">
-          <h2><strong>DJI MATRICE 30 SERIES: Kompaktný výkon pre firemné misie</strong></h2>
+          <h2><strong>DJI MATRICE 30 SERIES: Compact Power for Enterprise Missions</strong></h2>
           <img src="../static/image/preco.png" alt="DJI AGRAS T50" />
         </div>
         <div class="product-text">
@@ -268,20 +269,27 @@ a rozmetanie (50 kg / 75 l).</li>
             <br/>
 
             <p>
-              DJI M30/M30T je všestranný podnikový dron do každého počasia, nevyhnutný pre kritické operácie, kde je spoľahlivosť a pokročilá senzorová technológia prvoradá.
+              The DJI M30/M30T is a versatile, all-weather enterprise drone, essential for critical operations where 
+              reliability and advanced sensor technology are paramount.
             </p>
             <br/>
-            <h3>Kľúčové oblasti použitia:</h3>
+            <h3>Key Application Areas:</h3>
             <br/>
             <ul class="benefits-clean">
-              <li><strong>Verejná bezpečnosť a pátranie a záchrana (M30T):</strong> Rýchle nasadenie pre pátracie a záchranné misie (SAR) s využitím integrovanej termokamery na lokalizáciu tepelných stop vo dne aj v noci. Dôležitá podpora pre hasičské zložky a orgány činné v trestnom konaní s prehľadom o situácii v reálnom čase.</li>
+              <li><strong>Public Safety & SAR (M30T):</strong> Rapid deployment for Search and Rescue (SAR) missions using an integrated
+                Thermal Camera to locate heat signatures day or night.
+                Critical support for fire services and law enforcement with real-time situational awareness.</li>
 
-              <li><strong>Inšpekcie infraštruktúry:</strong> Bezpečné a podrobné kontroly kritických aktív. Použite 48 MP kameru so zoomom na detailnú kontrolu elektrických vedení, veterných turbín, mostov a solárnych panelov a identifikujte problémy, ako je prehriatie alebo poškodenie.</li>
+              <li><strong>Infrastructure Inspections:</strong> Safe and detailed checks of critical assets. Use the 48 MP Zoom Camera for
+                close-up inspection of 
+                power lines, wind turbines, bridges, and solar panels, identifying issues like overheating or damage.</li>
 
-              <li><strong>Mapovanie a monitorovanie:</strong> Presný zber údajov pre 3D modelovanie a monitorovanie lokality pomocou kamery s vysokým rozlíšením a laserového diaľkomeru (až do 1200 m).</li>
+              <li><strong>Mapping & Monitoring:</strong> Accurate data collection for 3D modelling and site monitoring
+                using its high-resolution camera and Laser Range Finder (up to 1200m).</li>
 
-              <li><strong>Navrhnuté pre extrémne podmienky:</strong> Vďaka krytiu IP55 a prevádzkovému rozsahu od -20 °C do 50 °C poskytuje séria M30 výkon, keď je to najviac potrebné.</li>
-              <a href="Service sk.html"><button><strong>Prečitať viac <br/> Stlač</strong></button></a>
+              <li><strong>Designed for Extremes:</strong> With an IP55 rating and operational range
+                from -20 °C to 50 °C, the M30 Series delivers performance when it matters most.</li>
+              <a href="Service.html"><button><strong>Read more <br/> Press me</strong></button></a>
             </ul> 
           </div>
         </div>
@@ -291,7 +299,7 @@ a rozmetanie (50 kg / 75 l).</li>
     <section class="product-section" aria-label="Produkt">
       <div class="product-container">
         <div class="product-image">
-          <h2><strong>DJI DOCK 3: Automatizovaná prevádzka dronov za každého počasia</strong></h2>
+          <h2><strong>DJI DOCK 3: Automated, All-Weather Drone Operations</strong></h2>
           <img src="../static/image/auto.jpg" alt="DJI AGRAS T50" />
         </div>
         <div class="product-text">
@@ -299,23 +307,28 @@ a rozmetanie (50 kg / 75 l).</li>
             <br/>
 
             <p>
-              DJI Dock 3 je špičkový automatizovaný hangár a nabíjacia stanica, ktorá transformuje podnikové operácie vďaka vzdialenému nasadeniu dronov 24/7. Vďaka svojej **odolnosti voči poveternostným vplyvom IP56** a širokému teplotnému rozsahu od **-30 °C do 50 °C** je pripravený do akéhokoľvek prostredia.
+              The DJI Dock 3 is the ultimate automated hangar and charging station, transforming enterprise operations with 24/7 remote drone deployment. With its IP56 weather resistance 
+              and wide temperature range -30C to 50C, it is ready for any environment.
             </p>
             <br/>
-            <h3>Kľúčové aplikácie:</h3>
+            <h3>Core Applications:</h3>
             <br/>
             <ul class="benefits-clean">
-              <li><strong>Verejná bezpečnosť:</strong> Rýchle nasadenie pre **pátracie a záchranné (SAR) misie** a monitorovanie katastrof v reálnom čase.</li>
+              <li><strong>Public Safety:</strong> Rapid deployment for Search & 
+                Rescue (SAR) and real-time disaster monitoring.</li>
 
-              <li><strong>Inšpekcia infraštruktúry:</strong> Autonómne, opakovateľné kontroly elektrického vedenia, solárnych fariem, telekomunikačných veží a potrubí (vrátane termovíznych prieskumov s M4TD).</li>
+              <li><strong>Infrastructure Inspection:</strong> Autonomous, repeatable checks of power lines, solar 
+                farms, telecom towers, and pipelines (including thermal surveys with the M4TD).</li>
 
-              <li><strong>Stavebníctvo a mapovanie:</strong> Automatizované monitorovanie postupu na stavenisku a zber dát pre presné 3D modelovanie.</li>
+              <li><strong>Construction & Mapping:</strong> Automated site progress monitoring and data collection
+                for accurate 3D modelling.</li>
 
-              <li><strong>Bezpečnosť a dohľad:</strong> Ochrana perimetra a inteligentná detekcia pohybujúcich sa objektov cez deň aj v noci.</li>
+              <li><strong>Security & Surveillance:</strong>Perimeter protection and intelligent detection of moving subjects day and night. </li>
 
-              <li> **Kľúčová výhoda:** Dock 3 prvýkrát podporuje **nasadenie namontované na vozidle**, čo umožňuje rýchle premiestnenie a inšpekcie na požiadanie na dlhé vzdialenosti. Spustenie do 15 sekúnd a správa všetkého na diaľku cez DJI FlightHub 2.</li>
-
-              <a href="Service sk.html"><button><strong>Read more <br/> Press me</strong></button></a>
+              <li> Key Advantage: For the first time, the Dock 3 supports Vehicle-Mounted Deployment, 
+                enabling quick relocation and on-demand inspections over 
+                long distances. Launch within 15 seconds and manage everything remotely via DJI FlightHub 2.</li>
+              <a href="Service.html"><button><strong>Read more <br/> Press me</strong></button></a>
             </ul> 
           </div>
         </div>
@@ -324,10 +337,11 @@ a rozmetanie (50 kg / 75 l).</li>
 
     <section class="contact-cta">
       <div class="contact-container">
-        <h3>Ak máte otazky opýtajte sa nás.</h3>
+        <h3>If you are interested, ask us!</h3>
         <p>
-          Kontaktujte nás v prípade konkrétnych otázok týkajúcich sa projektov na mieru, cien alebo špeciálnych potrieb.        </p>
-        <a href="Contact sk.html" class="contact-btn">Contact Us</a>
+          Contact us for specific inquiries about custom projects, pricing, or specialized needs.
+        </p>
+        <a href="Contact.html" class="contact-btn">Contact Us</a>
 
         <div class="social-icons">
           <a href="https://www.facebook.com/profile.php?id=61573863213235&locale=sk_SK" 
@@ -349,6 +363,8 @@ a rozmetanie (50 kg / 75 l).</li>
     </section>
 
   </main>
+
+
 
   <script>
     
