@@ -1,25 +1,25 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
-from .models import User
-from . import db
+from models import User
+from project import db
 
 views = Blueprint('views', __name__)
 
 # --- Main site pages (HTML templates) ---
-@views.route('/')
+@views.route('/project/')
 def home():
     return render_template('lobby.html')
 
-@views.route('/contact')
+@views.route('/project/contact')
 def contact():
     return render_template('Contact.html')
 
-@views.route('/farmers')
+@views.route('/project/farmers')
 def farmers():
     return render_template('Farmers.html')
 
 # --- Authentication ---
-@views.route('/login', methods=['GET', 'POST'])
+@views.route('/project/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -36,7 +36,7 @@ def login():
 
     return render_template('LogIn.html')
 
-@views.route('/register', methods=['GET', 'POST'])
+@views.route('/project/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         username = request.form.get('username')
@@ -60,7 +60,7 @@ def register():
 
     return render_template('register.html')
 
-@views.route('/logout')
+@views.route('/project/logout')
 @login_required
 def logout():
     logout_user()
@@ -68,7 +68,7 @@ def logout():
     return redirect(url_for('views.home'))
 
 # --- Admin or test route ---
-@views.route('/users')
+@views.route('/project/users')
 @login_required
 def show_users():
     users = User.query.all()

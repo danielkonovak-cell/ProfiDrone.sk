@@ -1,8 +1,9 @@
-from project import create_app   # ✅ import from the 'project' package
+from __init__ import create_app   # ✅ import from the 'project' package
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
-from .models import User
-from . import db
+from models import User
+from project import db
+
 
 app = create_app()
 
@@ -79,4 +80,5 @@ def show_users():
 
 
 if __name__ == '__main__':
+    
     app.run(debug=True)

@@ -13,11 +13,11 @@ def create_app():
     load_dotenv()
 
     # Load environment variables
-    mysql_user = os.getenv('MYSQL_USER', 'root')
+    mysql_user = os.getenv('MYSQL_USER', '')
     mysql_password = os.getenv('MYSQL_PASSWORD', '')
     mysql_host = os.getenv('MYSQL_HOST', '127.0.0.1')
     mysql_port = os.getenv('MYSQL_PORT', '3306')
-    mysql_db = os.getenv('MYSQL_DB', 'why')
+    mysql_db = os.getenv('MYSQL_DB', '')
 
     # ✅ Encode password for special characters (like '@')
     encoded_password = urllib.parse.quote_plus(mysql_password)
