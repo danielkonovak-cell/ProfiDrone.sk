@@ -18,5 +18,14 @@ def servicePage():
 def contactPage():
     return render_template("contact.html")
 
+@app.get("/sk")
+def lobby_sk():
+    return render_template("Slovak/lobby_sk.html")
+
+@app.get("/nl")
+def lobby_nl():
+    return render_template("Dutch/lobbydu.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

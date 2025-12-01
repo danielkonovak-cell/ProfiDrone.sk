@@ -5,122 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://kit.fontawesome.com/bd270e71b4.js" crossorigin="anonymous"></script>
   <title>Servis - ProfiDrone.sk</title>
+ <link rel="stylesheet" href="/static/index.css">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    body {
-      font-family: "Inter", sans-serif;
-      background-color: #f9fafb;
-      color: #111827;
-    }
-
-    /* === HLAVIČKA S POZADÍM === */
-    .header-bg {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 420px;
-      padding: 2rem 1rem;
-      background-image: url("/static/image/nie.jpg"); /* rovnaké pozadie ako na lobby */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #fff;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    /* tmavý overlay pre čitateľnosť textu */
-    .header-bg::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: 0;
-    }
-
-    /* Obsah hlavičky */
-    .header-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-
-    .header-bg h1 {
-      color: #fff;
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-      font-size: clamp(50px, 8vw, 100px);
-      font-weight: 700;
-      margin: 0 0 1rem 0;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-    }
-
-    .center-buttons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      z-index: 1;
-    }
-
-    .center-buttons button {
-      background-color: #39a009;
-      color: #fff;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
-      border-radius: 8px;
-      transition: background-color 0.25s ease;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    .center-buttons button:hover {
-      background-color: #29650c;
-    }
-
-    /* Kontakt */
-    .icone {
-      display: flex;
-      justify-content: center;
-      gap: 1.25rem;
-      font-size: 2rem;
-      margin-top: 2rem;
-    }
-
-    .icone i {
-      color: #111827;
-      transition: color 0.2s;
-      cursor: pointer;
-    }
-
-    .icone i:hover {
-      color: #39a009;
-    }
-
-    .autor {
-      display: block;
-      text-align: center;
-      color: #6b7280;
-      margin-top: 1rem;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem 0;
-      color: #6b7280;
-      font-size: 0.9rem;
-    }
-  </style>
+ 
 </head>
 
 <body>
