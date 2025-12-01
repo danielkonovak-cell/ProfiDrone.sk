@@ -207,10 +207,19 @@
     <div class="header-content">
       <h1 class="site-title">ProfiDrone</h1>
       <nav class="center-buttons">
-        <a href="{{ url_for('servicePage') }}"><button class="btn btn-large">Service</button></a>
-        <a href="{{ url_for('farmersPage') }}"><button class="btn btn-large">Farmers</button></a>
-        <a href="{{ url_for('contactPage') }}"><button class="btn btn-large">Contact</button></a>
-      </nav>
+    <a href="{{ url_for('servicePage') }}">
+        <button class="btn btn-large">Service</button>
+    </a>
+
+    <a href="{{ url_for('farmersPage') }}">
+        <button class="btn btn-large">Farmers</button>
+    </a>
+
+    <a href="{{ url_for('contactPage') }}">
+        <button class="btn btn-large">Contact</button>
+    </a>
+</nav>
+
     </div>
   </header>
 
