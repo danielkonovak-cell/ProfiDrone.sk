@@ -20,13 +20,13 @@
     <div class="header-content">
       <h1>Farmers</h1>
       <div class="center-buttons">
-        <a href="index.html" title="Home ProfiDrone.sk">
+        <a href="{{ url_for('indexPage') }}" title="Home ProfiDrone.sk">
           <button>Home</button>
         </a>
         <a href="{{ url_for('servicePage') }}" title="Service ProfiDrone.sk">
           <button>Service</button>
         </a>
-        <a href="Contact.html" title="Contact ProfiDrone.sk">
+        <a href="{{ url_for('contactPage') }}" title="Contact ProfiDrone.sk">
           <button>Contact</button>
         </a>
       </div>
