@@ -94,7 +94,7 @@ def contact_nl():
 def login_nl():
     return render_template("Dutch/LogIndu.html")
 
-@app.get("/nl/register")sqaq
+@app.get("/nl/register")
 def register_nl():
     return render_template("Dutch/registerdu.html")
 
