@@ -12,7 +12,7 @@ def index():
 
 @app.get("/farmers")
 def farmersPage():
-    return render_template("farmers.html")
+    return render_template("farmer.html")
 
 @app.get("/service")
 def servicePage():
@@ -21,14 +21,6 @@ def servicePage():
 @app.get("/contact")
 def contactPage():
     return render_template("contact.html")
-
-@app.get("/login")
-def loginPage():
-    return render_template("Login.html")
-
-@app.get("/register")
-def registerPage():
-    return render_template("register.html")
 
 @app.get("/users")
 def usersPage():
